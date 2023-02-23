@@ -56,7 +56,7 @@ export const GlobalProvider = ({ children }) => {
 	async function getTransactions() {
 		try {
 			const response = await axios.get(
-				"https://expense-tracker-react-app-sandy.vercel.app/api/v1/transactions"
+				"https://expense-tracker-react-pteqcmllz-muhammadsalehskipq-gmailcom.vercel.app/api/v1/transactions"
 			);
 			dispatch({ type: "GET_TRANSACTIONS", payload: response.data.data });
 		} catch (error) {
