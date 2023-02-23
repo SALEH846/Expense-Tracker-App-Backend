@@ -21,7 +21,7 @@ export const GlobalProvider = ({ children }) => {
 	async function deleteTransaction(id) {
 		try {
 			await axios.delete(
-				`https://nameless-mountain-96498.herokuapp.com/api/v1/transactions/${id}`
+				`https://react-expense-tracker-app.vercel.app/api/v1/transactions/${id}`
 			);
 			dispatch({ type: "DELETE_TRANSACTION", payload: id });
 		} catch (error) {
@@ -40,7 +40,7 @@ export const GlobalProvider = ({ children }) => {
 		};
 		try {
 			const response = await axios.post(
-				"https://nameless-mountain-96498.herokuapp.com/api/v1/transactions",
+				"https://react-expense-tracker-app.vercel.app/api/v1/transactions",
 				transaction,
 				config
 			);
@@ -56,7 +56,7 @@ export const GlobalProvider = ({ children }) => {
 	async function getTransactions() {
 		try {
 			const response = await axios.get(
-				"https://nameless-mountain-96498.herokuapp.com/api/v1/transactions"
+				"https://react-expense-tracker-app.vercel.app/api/v1/transactions"
 			);
 			dispatch({ type: "GET_TRANSACTIONS", payload: response.data.data });
 		} catch (error) {
