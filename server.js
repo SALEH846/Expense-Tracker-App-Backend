@@ -27,8 +27,8 @@ app.use(cors());
 // routes
 app.use("/api/v1/transactions", transactionsRouter);
 
-// app.use(express.static("client/dist"));
-app.use(express.static(path.resolve(__dirname, "client", "dist")));
+app.use(express.static("client/dist"));
+// app.use(express.static(path.resolve(__dirname, "client", "dist")));
 
 app.get("*", (request, response) =>
 	response.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
