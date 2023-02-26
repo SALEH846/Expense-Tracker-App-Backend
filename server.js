@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 const colors = require("colors");
 const morgan = require("morgan");
 const cors = require("cors");
-const path = require("path");
 // routes imports
 const transactionsRouter = require("./routes/transactions");
 // function for connecting MongoDB atlas (MongoDB in the cloud)
@@ -26,13 +25,6 @@ app.use(cors());
 
 // routes
 app.use("/api/v1/transactions", transactionsRouter);
-
-app.use(express.static("client/dist"));
-// app.use(express.static(path.resolve(__dirname, "client", "dist")));
-
-app.get("*", (request, response) =>
-	response.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-);
 
 // port
 const PORT = process.env.PORT || 5000;
