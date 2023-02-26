@@ -27,13 +27,12 @@ app.use(cors());
 // routes
 app.use("/api/v1/transactions", transactionsRouter);
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/dist/assets"));
+// app.use(express.static("client/dist"));
+app.use(express.static(path.resolve(__dirname, "client", "dist")));
 
-	app.get("*", (request, response) =>
-		response.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-	);
-}
+app.get("*", (request, response) =>
+	response.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+);
 
 // port
 const PORT = process.env.PORT || 5000;
